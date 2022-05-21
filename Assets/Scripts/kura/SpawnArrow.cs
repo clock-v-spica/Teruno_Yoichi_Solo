@@ -17,7 +17,7 @@ public class SpawnArrow : MonoBehaviour
     {
         if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
         {
-            Instantiate(Arrow);
+            Instantiate(Arrow, this.transform.position, this.transform.rotation);
         }
         
         if (Input.GetMouseButtonDown(0))
