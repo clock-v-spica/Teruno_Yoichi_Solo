@@ -1,24 +1,25 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaunchArrow : MonoBehaviour
+public class LaunchArrowBow : MonoBehaviour
 {
     private Rigidbody rb;
     public GameObject LeftHandPosition;
     public GameObject RightHandPosition;
 
-    public float force_abs;
-    private Vector3 force;
-
+    private float force_abs_bow;
+    private Vector3 force_bow;
+    
     // Start is called before the first frame update
     void Start()
     {
+        LeftHandPosition = GameObject.Find("LeftControllerAnchor");
+        RightHandPosition = GameObject.Find("RightControllerAnchor");
         rb = GetComponent<Rigidbody>();
-        force = transform.up * force_abs;
-        // force = LeftHandPosition.transform.position - RightHandPosition.transform.position;
-        rb.AddForce(force, ForceMode.Impulse);
+        force_abs_bow = (LeftHandPosition.transform.position - RightHandPosition.transform.position).magnitude * 20;
+        force_bow = transform.up * force_abs_bow;
+        rb.AddForce(force_bow, ForceMode.Impulse);
     }
 
     // Update is called once per frame
