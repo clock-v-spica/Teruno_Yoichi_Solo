@@ -6,11 +6,11 @@ using UnityEngine;
 public class NetworkInitializer : MonoBehaviour
 {
     [SerializeField]
-    PlayerHand_NetSync head;
+    PlayerBody_NetSync head;
     [SerializeField]
-    PlayerHand_NetSync rightHand;
+    PlayerBody_NetSync rightHand;
     [SerializeField]
-    PlayerHand_NetSync leftHand;
+    PlayerBody_NetSync leftHand;
 
     [SerializeField]
     bool isOffline;
@@ -19,7 +19,7 @@ public class NetworkInitializer : MonoBehaviour
     {
         ResumeNetworkMessaging();
         PlayerTrackedBody.OnTrackedPartsUpdated += PlayerTrackedBody_OnTrackedPartsUpdated;
-        if (OctSystemCore.IsHost)
+        if (TerunoManager.IsHost)
             AssignToVRPlayer();
         else
             AssignToTabletPlayer();
@@ -27,7 +27,7 @@ public class NetworkInitializer : MonoBehaviour
 
     private void PlayerTrackedBody_OnTrackedPartsUpdated(TrackedBodyPart obj)
     {
-        if (OctSystemCore.IsHost)
+        if (TerunoManager.IsHost)
         {
             if (obj == TrackedBodyPart.PlayerOne_Head)
             {

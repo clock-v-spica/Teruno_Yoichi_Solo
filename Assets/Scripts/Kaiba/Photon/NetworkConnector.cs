@@ -3,7 +3,6 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR;
 
 public class NetworkConnector : MonoBehaviourPunCallbacks
 {
@@ -13,11 +12,11 @@ public class NetworkConnector : MonoBehaviourPunCallbacks
     [SerializeField]
     string mainSceneName;
 
-    bool IsHost { get => OctSystemCore.IsNetworkHost; set => OctSystemCore.IsNetworkHost=value; }
+    bool IsHost { get => TerunoManager.IsNetworkHost; set => TerunoManager.IsNetworkHost=value; }
 
     private void Start()
     {
-        OctSystemCore.InitializeVR();
+
     }
 
     private void EnableUI()
@@ -80,7 +79,7 @@ public class NetworkConnector : MonoBehaviourPunCallbacks
         base.OnJoinedRoom();
         PhotonNetwork.IsMessageQueueRunning = false;
         PhotonNetwork.AutomaticallySyncScene = true;
-        OctSystemCore.isOffline = false;
+        TerunoManager.isOffline = false;
 
         if (IsHost)
         {

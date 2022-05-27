@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Network.Kaiba;
 
-public class PlayerHand_NetSync : MonoBehaviour
+public class PlayerBody_NetSync : MonoBehaviour
 {
-    [SerializeField]
-    bool isHead;
-    [SerializeField]
-    bool isRight;
 
     [Tooltip("0 = Head, 1 = RightHand, 2 = LeftHand")]
     [SerializeField]
@@ -24,6 +20,6 @@ public class PlayerHand_NetSync : MonoBehaviour
 
         HandDict.Add(part, gameObject);
 
-        OctSystemCore.InstantiateTrackedBodyPart(part);
+        TerunoManager.InstantiateTrackedBodyPart(part);
     }
 }
