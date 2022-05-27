@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c97bf562d4464a4395449f6e83b309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+  canvas: {fileID: 1839512859}
   mainSceneName: PhotonMain
 --- !u!4 &427805448
 Transform:

@@ -18,7 +18,7 @@ public class LaunchArrowBow : MonoBehaviour
         RightHandPosition = GameObject.Find("RightControllerAnchor");
         rb = GetComponent<Rigidbody>();
         force_abs_bow = (LeftHandPosition.transform.position - RightHandPosition.transform.position).magnitude * 20;
-        force_bow = transform.up * force_abs_bow;
+        force_bow = transform.forward * force_abs_bow;
         rb.AddForce(force_bow, ForceMode.Impulse);
     }
 
