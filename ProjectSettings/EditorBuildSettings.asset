@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Kaiba/PhotonSample.unity
+    guid: 859b2829da20b0b439723a239fec2bcf
+  - enabled: 1
+    path: Assets/Scenes/Kaiba/PhotonMain.unity
+    guid: f142e9c8a0431d04fb1bb8fcf3ea6bdd
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8cf4fb9b39432514f8dc7e99f8b8d32f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: eeb0e61a82ef57c4fb9c68e3cb8664a0, type: 2}
