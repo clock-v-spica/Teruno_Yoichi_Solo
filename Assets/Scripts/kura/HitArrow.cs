@@ -25,7 +25,6 @@ public class HitArrow : MonoBehaviour
         if (other.gameObject.CompareTag("Targets"))
         {
             _rb_arrow.constraints = RigidbodyConstraints.FreezeAll;
-            _audioSource.PlayOneShot(_audioSource.clip);
         }
     }
 
