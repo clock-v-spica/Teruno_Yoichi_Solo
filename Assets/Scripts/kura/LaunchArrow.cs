@@ -16,7 +16,7 @@ public class LaunchArrow : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        force = transform.up * force_abs;
+        force = transform.forward * force_abs;
         // force = LeftHandPosition.transform.position - RightHandPosition.transform.position;
         rb.AddForce(force, ForceMode.Impulse);
     }
