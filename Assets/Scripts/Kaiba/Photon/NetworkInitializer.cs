@@ -28,6 +28,12 @@ public class NetworkInitializer : MonoBehaviour
     [SerializeField]
     bool isOffline;
 
+    private void Awake()
+    {
+        TerunoManager.shooterAnchor = shooterAnchor;
+        TerunoManager.catcherAnchor = catcherAnchor;
+    }
+
     private void Start()
     {
         PlayerTrackedBody.OnTrackedPartsUpdated += PlayerTrackedBody_OnTrackedPartsUpdated;

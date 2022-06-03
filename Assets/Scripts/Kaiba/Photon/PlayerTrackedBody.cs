@@ -13,6 +13,8 @@ public class PlayerTrackedBody : MonoBehaviour, IPunInstantiateMagicCallback
     [SerializeField]
     TrackedBodyPart bodyPart;
 
+    [SerializeField]
+    PhotonAnchoredTransformView view;
 
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {
@@ -27,8 +29,18 @@ public class PlayerTrackedBody : MonoBehaviour, IPunInstantiateMagicCallback
         if (PlayerBody_NetSync.HandDict.TryGetValue(part, out GameObject obj))
         {
             transform.SetParent(obj.transform);
+            transform.localPosition = Vector3.zero;
+            transform.localEulerAngles = Vector3.zero;
+        }
+        else
+        {
+            var anchor = (int)part > 2 ? TerunoManager.catcherAnchor : TerunoManager.shooterAnchor;
+            transform.SetParent(anchor);
+            transform.localPosition = Vector3.zero;
+            transform.localEulerAngles = Vector3.zero;
         }
 
+        view.Init();
 
         OnTrackedPartsUpdated?.Invoke(part);
     }
