@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1442954622170105015}
   - component: {fileID: 638754199786102149}
   - component: {fileID: 8151937125649485818}
-  - component: {fileID: 2300080431026165434}
+  - component: {fileID: 7516504637634258156}
   m_Layer: 0
   m_Name: PlayerTrackedBody_Hand
   m_TagString: Untagged
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyPart: 0
+  view: {fileID: 7516504637634258156}
 --- !u!114 &8151937125649485818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,11 +66,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 2300080431026165434}
+  - {fileID: 7516504637634258156}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2300080431026165434
+--- !u!114 &7516504637634258156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,10 +79,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 732108633931718515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: d98a566f5b340b44b8e53750ce01f2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 0
+  anchor: {fileID: 0}
