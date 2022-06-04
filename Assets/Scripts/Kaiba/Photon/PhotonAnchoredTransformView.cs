@@ -115,7 +115,7 @@ public class PhotonAnchoredTransformView : MonoBehaviourPun, IPunObservable
             if (this.m_SynchronizeRotation)
             {
                 this.m_NetworkRotation = (Quaternion)stream.ReceiveNext();
-                m_NetworkAnchoredRotation = anchor.transform.rotation * m_NetworkRotation;
+                m_NetworkAnchoredRotation = Quaternion.Inverse(anchor.transform.rotation * m_NetworkRotation);
 
                 if (m_firstTake)
                 {
