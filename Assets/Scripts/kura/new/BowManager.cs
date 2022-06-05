@@ -26,18 +26,10 @@ public class BowManager : MonoBehaviour
     {
         if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
         {
-            arrow = Instantiate(_arrow, _RightHand.transform.position, _RightHand.transform.rotation);
+            arrow = Instantiate(_arrow, _RightHand.transform.position, _RightHand.transform.rotation * Quaternion.Euler(0f, -90.0f, 0f));
             arrow.transform.parent = _RightHand.transform;
         }
-
-        if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
-        {
-            arrow.transform.parent = null;
-            Rigidbody rb = arrow.GetComponent<Rigidbody>();
-            rb.useGravity = true;
-            rb.constraints = RigidbodyConstraints.None;
-            
-        }
+        
     }
 
     /// <summary>
@@ -48,9 +40,10 @@ public class BowManager : MonoBehaviour
     {
         stringBone.localPosition = 
             new Vector3 (
-                stringBone.localPosition.x,
-                _localstartPos.y + worldDistance * (1f / stringBone.lossyScale.y), 
-                stringBone.localPosition.z);
+                -(_localstartPos.x + worldDistance * (1f / stringBone.lossyScale.x)),
+                stringBone.localPosition.y,
+                stringBone.localPosition.z
+            );
     }
 
     /// <summary>
