@@ -46,6 +46,11 @@ public class RemotePlayerSetup : MonoBehaviour
         if (!PlayerTrackedBody.TrackedBodyDict.ContainsKey(remote_lh))
             return;
 
+        var head = new GameObject();
+        head.transform.SetParent(PlayerTrackedBody.TrackedBodyDict[remote_h].transform);
+        head.transform.localPosition = Vector3.zero;
+        head.transform.localEulerAngles = new Vector3(0, -180, 0);
+
         vrIK.solver.spine.headTarget = PlayerTrackedBody.TrackedBodyDict[remote_h].transform;
         vrIK.solver.rightArm.target = PlayerTrackedBody.TrackedBodyDict[remote_rh].transform;
         vrIK.solver.leftArm.target = PlayerTrackedBody.TrackedBodyDict[remote_lh].transform;
