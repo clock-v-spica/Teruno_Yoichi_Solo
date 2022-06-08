@@ -54,8 +54,8 @@ public class PhotonAnchoredTransformView : MonoBehaviourPun, IPunObservable
 
         if (!this.photonView.IsMine)
         {
-            tr.position = Vector3.MoveTowards(tr.position, m_NetworkAnchoredPosition, this.m_Distance * (1.0f / PhotonNetwork.SerializationRate));
-            tr.rotation = Quaternion.RotateTowards(tr.rotation, m_NetworkAnchoredRotation, this.m_Angle * (1.0f / PhotonNetwork.SerializationRate));
+            tr.localPosition = Vector3.MoveTowards(tr.localPosition, m_NetworkAnchoredPosition, this.m_Distance * (1.0f / PhotonNetwork.SerializationRate));
+            tr.localRotation = Quaternion.RotateTowards(tr.localRotation, m_NetworkAnchoredRotation, this.m_Angle * (1.0f / PhotonNetwork.SerializationRate));
 
         }
     }
