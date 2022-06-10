@@ -32,7 +32,7 @@ public class ArrowController : MonoBehaviour
             localPos.x = -dis;
             this.transform.localPosition = localPos;
         }
-        
+
         if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger) && !isLanched)
         {
             isSet = false;
@@ -43,9 +43,10 @@ public class ArrowController : MonoBehaviour
             rb.AddForce(this.transform.right * ForceCoefficient * dis, ForceMode.Impulse);
             _bowManager.Reset();
         }
-    }
 
-    private void OnCollisionEnter(Collision other)
+        if (this.transform.position.magnitude > 200) Destroy(this);
+    }
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bow" && !isLanched)
         {

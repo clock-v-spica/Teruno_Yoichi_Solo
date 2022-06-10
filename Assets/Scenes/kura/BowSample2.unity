@@ -204,6 +204,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7161414922636504224, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.024
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161414922636504224, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161414922636504224, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161414922636504224, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161414922636504224, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271287619139818827, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -218,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7271287619139818827, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.74
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7271287619139818827, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -254,7 +274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7271287619139818828, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Targets
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271287619270691656, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
+      propertyPath: m_Center.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7271287619270691656, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
       propertyPath: m_IsTrigger
@@ -262,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7271287619270691669, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
       propertyPath: m_CollisionDetection
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eab46ba41768b2a4698505d83b8ddd1d, type: 3}
