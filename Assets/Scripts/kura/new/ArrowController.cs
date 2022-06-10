@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,9 @@ public class ArrowController : MonoBehaviour
     [SerializeField] private float ForceCoefficient = 1f;
     Rigidbody rb;
     private float dis = 0;
+
+    [SerializeField]
+    PhotonView view;
 
     // Start is called before the first frame update
     void Start()
@@ -35,17 +39,30 @@ public class ArrowController : MonoBehaviour
 
         if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger) && !isLanched)
         {
-            isSet = false;
-            isLanched = true;
-            this.transform.parent = null;
-            rb.useGravity = true;
-            rb.constraints = RigidbodyConstraints.None;
-            rb.AddForce(this.transform.right * ForceCoefficient * dis, ForceMode.Impulse);
-            _bowManager.Reset();
+            ShotRPC(dis);
         }
 
         if (this.transform.position.magnitude > 200) Destroy(this);
     }
+
+    void ShotRPC(float distance)
+    {
+        view.RPC("Shot", RpcTarget.All, new object[] { distance });
+    }
+
+    [PunRPC]
+    public void Shot(float distance)
+    {
+        isSet = false;
+        isLanched = true;
+        this.transform.parent = null;
+        rb.useGravity = true;
+        rb.constraints = RigidbodyConstraints.None;
+        rb.AddForce(this.transform.right * ForceCoefficient * distance, ForceMode.Impulse);
+        _bowManager.Reset();
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bow" && !isLanched)

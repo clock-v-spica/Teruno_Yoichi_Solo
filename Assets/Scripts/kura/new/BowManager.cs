@@ -24,7 +24,7 @@ public class BowManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
+        if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger)&& TerunoManager.IsHost)
         {
             arrow = Instantiate(_arrow, _RightHand.transform.position, _RightHand.transform.rotation * Quaternion.Euler(0f, -90.0f, 0f));
             arrow.transform.parent = _RightHand.transform;
