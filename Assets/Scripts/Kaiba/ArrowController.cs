@@ -14,7 +14,7 @@ namespace Kaiba.Teruno_System
     {
         [SerializeField] private bool isLanched = false;
         [SerializeField] private bool isSet = false;
-        [SerializeField] public BowManager _bowManager;
+        [SerializeField] public BowController _bowManager;
         [SerializeField] private float ForceCoefficient = 1f;
         Rigidbody rb;
         private float dis = 0;
@@ -25,7 +25,7 @@ namespace Kaiba.Teruno_System
         // Start is called before the first frame update
         void Start()
         {
-            _bowManager = GameObject.Find("BowManager").GetComponent<BowManager>();
+            _bowManager = GameObject.Find("BowManager").GetComponent<BowController>();
             rb = this.GetComponent<Rigidbody>();
             rb.useGravity = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
