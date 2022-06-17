@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Kaiba.Teruno_System
 {
-    public class BowManager : MonoBehaviour
+    public class BowController : MonoBehaviour
     {
         [SerializeField] public GameObject _bow; // 弓本体
         [SerializeField] public GameObject _arrow; // 矢本体
@@ -26,9 +26,12 @@ namespace Kaiba.Teruno_System
         // Update is called once per frame
         void Update()
         {
+            if (!TerunoManager.IsHost)
+                return;
+
             if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
             {
-                arrow = Instantiate(_arrow, _RightHand.transform.position, _RightHand.transform.rotation * Quaternion.Euler(0f, -90.0f, 0f));
+                arrow = Network.NetworkUtility.Instantiate("Arrow_Bow", _RightHand.transform.position, _RightHand.transform.rotation * Quaternion.Euler(0f, -90.0f, 0f));
                 arrow.transform.parent = _RightHand.transform;
             }
 

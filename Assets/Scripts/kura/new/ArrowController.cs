@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowController : MonoBehaviour
+public class ArrowController : MonoBehaviour, IPunInstantiateMagicCallback
 {
     [SerializeField] private bool isLanched = false;
     [SerializeField] private bool isSet = false;
@@ -28,6 +28,9 @@ public class ArrowController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!TerunoManager.IsHost)
+            return;
+
         if (isSet)
         {
             dis = (_bowManager._LeftHand.transform.position - _bowManager._RightHand.transform.position).magnitude;
@@ -65,6 +68,9 @@ public class ArrowController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!TerunoManager.IsHost)
+            return;
+
         if (other.gameObject.tag == "Bow" && !isLanched)
         {
             isSet = true;
@@ -81,5 +87,10 @@ public class ArrowController : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
+    }
+
+    public void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+
     }
 }

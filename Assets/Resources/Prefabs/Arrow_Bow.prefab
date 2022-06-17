@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3819399450999413475}
   - component: {fileID: 6830396489388632432}
   - component: {fileID: 6705132947208005009}
-  - component: {fileID: -5503264643698615280}
+  - component: {fileID: 5714612141803740499}
+  - component: {fileID: 5982540361362404826}
   m_Layer: 0
   m_Name: Arrow_Bow
   m_TagString: Arrows
@@ -116,7 +117,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.4, y: 0.16, z: 0.002}
   m_Center: {x: 0.58, y: -1.4879844e-15, z: -0.002181168}
---- !u!114 &-5503264643698615280
+--- !u!114 &5714612141803740499
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,10 +126,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 3315150568737733430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9bd775d21a335f4bb63eb9565fadcfc, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLanched: 0
-  isSet: 0
-  _bowManager: {fileID: 0}
-  ForceCoefficient: 50
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 5982540361362404826}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5982540361362404826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315150568737733430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3

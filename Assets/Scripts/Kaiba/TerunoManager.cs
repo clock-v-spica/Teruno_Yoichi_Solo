@@ -1,4 +1,4 @@
-using Network.Kaiba;
+using Kaiba.Network;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

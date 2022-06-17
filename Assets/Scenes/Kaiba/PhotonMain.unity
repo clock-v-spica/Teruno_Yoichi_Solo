@@ -156,7 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 484546838}
-  - component: {fileID: 484546837}
+  - component: {fileID: 484546839}
   m_Layer: 0
   m_Name: BowManager
   m_TagString: Untagged
@@ -164,24 +164,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &484546837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484546836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aa5f0d685f645d42ae0222755faa511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bow: {fileID: 431941973}
-  _arrow: {fileID: 3315150568737733430, guid: e4a670d91a9995b4c98e01761b42f344, type: 3}
-  _bowCenter: {fileID: 431941973}
-  _LeftHand: {fileID: 653593226}
-  _RightHand: {fileID: 653593222}
-  stringBone: {fileID: 332120844}
 --- !u!4 &484546838
 Transform:
   m_ObjectHideFlags: 0
@@ -196,6 +178,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &484546839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484546836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4180bc3a6ff7164991958f16ad29f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bow: {fileID: 431941973}
+  _arrow: {fileID: 3315150568737733430, guid: e4a670d91a9995b4c98e01761b42f344, type: 3}
+  _bowCenter: {fileID: 431941973}
+  _LeftHand: {fileID: 653593226}
+  _RightHand: {fileID: 653593222}
+  stringBone: {fileID: 332120844}
 --- !u!1001 &552280950
 PrefabInstance:
   m_ObjectHideFlags: 0
