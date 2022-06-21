@@ -267,8 +267,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447986586}
-  m_LocalRotation: {x: 0.055586264, y: -0.39632758, z: 0.024047632, w: 0.9161093}
-  m_LocalPosition: {x: 786.3114, y: 153.7588, z: 146.43423}
+  m_LocalRotation: {x: -0.045117803, y: 0.38471287, z: 0.018832149, w: 0.92174065}
+  m_LocalPosition: {x: 714.67163, y: 145.47473, z: 158.6395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -425,13 +425,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.2140064, y: 0.65723485, z: -0.18696539, w: 0.69805986}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 32.993, y: 86.96, z: 1.385}
 --- !u!1 &708317406
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,8 +556,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177827783}
-  m_LocalRotation: {x: 0.055586264, y: -0.39632758, z: 0.024047632, w: 0.9161093}
-  m_LocalPosition: {x: 786.3114, y: 153.7588, z: 146.43423}
+  m_LocalRotation: {x: 0.12632726, y: 0.8330002, z: 0.21261922, w: -0.49491948}
+  m_LocalPosition: {x: 741.90045, y: 152.95967, z: 102.52183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -707,8 +707,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455736502}
-  m_LocalRotation: {x: 0.055586264, y: -0.39632758, z: 0.024047632, w: 0.9161093}
-  m_LocalPosition: {x: 786.3114, y: 153.7588, z: 146.43423}
+  m_LocalRotation: {x: -0.045117803, y: 0.38471287, z: 0.018832149, w: 0.92174065}
+  m_LocalPosition: {x: 714.67163, y: 145.47473, z: 158.6395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -893,16 +893,16 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 672b85ad711cf9f44bd8e301177471ad, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
+  m_TreeDistance: 2500
+  m_TreeBillboardDistance: 10
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
   m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
+  m_HeightmapPixelError: 200
+  m_SplatMapDistance: 200
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
+  m_ShadowCastingMode: 1
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
