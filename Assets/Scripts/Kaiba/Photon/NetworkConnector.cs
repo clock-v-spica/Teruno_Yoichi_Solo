@@ -19,6 +19,14 @@ public class NetworkConnector : MonoBehaviourPunCallbacks
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+            ConnectAsVRPlayer();
+        if (Input.GetKeyDown(KeyCode.C))
+            ConnectAsTabletPlayer();
+    }
+
     private void EnableUI()
     {
         canvas.SetActive(false);

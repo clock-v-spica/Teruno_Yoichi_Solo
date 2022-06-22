@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Network.Kaiba
+namespace Kaiba.Network
 {
     public static class NetworkUtility
     {

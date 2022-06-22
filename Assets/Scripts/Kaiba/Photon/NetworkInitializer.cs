@@ -28,6 +28,12 @@ public class NetworkInitializer : MonoBehaviour
     [SerializeField]
     bool isOffline;
 
+    private void Awake()
+    {
+        TerunoManager.shooterAnchor = shooterAnchor;
+        TerunoManager.catcherAnchor = catcherAnchor;
+    }
+
     private void Start()
     {
         PlayerTrackedBody.OnTrackedPartsUpdated += PlayerTrackedBody_OnTrackedPartsUpdated;
@@ -70,12 +76,12 @@ public class NetworkInitializer : MonoBehaviour
     {
         VRCameraRig.GetComponent<PlayerSetup>().Init(true);
         VRCameraRig.transform.SetParent(shooterAnchor.parent);
-        VRCameraRig.transform.position = shooterAnchor.position;
+        VRCameraRig.transform.position = shooterAnchor.position + Vector3.up;
         VRCameraRig.transform.rotation = shooterAnchor.rotation;
 
         remotePlayer.GetComponent<RemotePlayerSetup>().Init(false);
         remotePlayer.transform.SetParent(catcherAnchor.parent);
-        remotePlayer.transform.position = catcherAnchor.position;
+        remotePlayer.transform.position = catcherAnchor.position + Vector3.up;
         remotePlayer.transform.rotation = catcherAnchor.rotation;
         head.Init(0);
 
