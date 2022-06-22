@@ -15,6 +15,9 @@ namespace Kaiba.Teruno_System
         private float dis = 0;
 
         [SerializeField]
+        GameObject hitEffectPrefab;
+
+        [SerializeField]
         PhotonView view;
 
         // Start is called before the first frame update
@@ -98,7 +101,7 @@ namespace Kaiba.Teruno_System
         [PunRPC]
         public void HitRPC()
         {
-
+            Instantiate(hitEffectPrefab, transform.position + transform.forward * 0.05f, transform.rotation);
         }
 
         public void OnPhotonInstantiate(PhotonMessageInfo info)
