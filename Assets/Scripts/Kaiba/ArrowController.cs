@@ -91,7 +91,19 @@ namespace Kaiba.Teruno_System
             if (other.gameObject.tag == "Targets")
             {
                 rb.constraints = RigidbodyConstraints.FreezeAll;
+                OnHit();
             }
+        }
+
+        public void OnHit()
+        {
+            view.RPC("HitRPC", RpcTarget.All, new object[] { });
+        }
+
+        [PunRPC]
+        public void HitRPC()
+        {
+
         }
 
         public void OnPhotonInstantiate(PhotonMessageInfo info)
