@@ -1,14 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using Kaiba;
+using Photon.Pun;
 using UnityEngine;
 
 namespace Kaiba.Teruno_System
 {
-    using Photon.Pun;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
 
     public class ArrowController : MonoBehaviour, IPunInstantiateMagicCallback
     {
@@ -51,7 +46,7 @@ namespace Kaiba.Teruno_System
                 Shot(dis);
             }
 
-            if (this.transform.position.magnitude > 200) Destroy(this);
+            if (transform.position.magnitude > 200) Network.NetworkUtility.DestroyNetworkObject(gameObject);
         }
 
         void ShotRPC(float distance)
