@@ -47,7 +47,7 @@ namespace Kaiba.Teruno_System
                 new Vector3(
                    stringBone.localPosition.x,
                     stringBone.localPosition.y,
-                     -(_localstartPos.z + worldDistance * (1f / stringBone.lossyScale.z))
+                     -(_localstartPos.z + worldDistance *10f* (1f / stringBone.lossyScale.z))
                 );
         }
 

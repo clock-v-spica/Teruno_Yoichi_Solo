@@ -40,7 +40,7 @@ namespace Kaiba.Teruno_System
                 dis = (_bowManager._LeftHand.transform.position - _bowManager._RightHand.transform.position).magnitude;
                 _bowManager.BowDrawing(dis);
                 Vector3 localPos = this.transform.localPosition;
-                localPos.x = -dis;
+                localPos.z = -dis;
                 this.transform.localPosition = localPos;
             }
 
@@ -65,7 +65,7 @@ namespace Kaiba.Teruno_System
             this.transform.parent = null;
             rb.useGravity = true;
             rb.constraints = RigidbodyConstraints.None;
-            rb.AddForce(this.transform.right * ForceCoefficient * distance, ForceMode.Impulse);
+            rb.AddForce(this.transform.forward * ForceCoefficient * distance, ForceMode.Impulse);
         }
 
 
