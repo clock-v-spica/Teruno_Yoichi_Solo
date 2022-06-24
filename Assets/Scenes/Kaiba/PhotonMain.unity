@@ -224,7 +224,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.451
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -369,8 +369,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463684794}
-  m_LocalRotation: {x: 0.005520259, y: 0.23334065, z: -0.0014008504, w: 0.97237843}
-  m_LocalPosition: {x: 387.6015, y: -162.817, z: 176.17694}
+  m_LocalRotation: {x: 0.10950446, y: -0.03874814, z: -0.0041966983, w: -0.99322194}
+  m_LocalPosition: {x: 413.47876, y: -155.32701, z: 181.1473}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1743276375}
@@ -660,7 +660,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.451
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1507,8 +1507,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744136506}
-  m_LocalRotation: {x: 0.005520259, y: 0.23334065, z: -0.0014008504, w: 0.97237843}
-  m_LocalPosition: {x: 387.6015, y: -162.817, z: 176.17694}
+  m_LocalRotation: {x: 0.10950446, y: -0.03874814, z: -0.0041966983, w: -0.99322194}
+  m_LocalPosition: {x: 413.47876, y: -155.32701, z: 181.1473}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1743276375}
@@ -1678,8 +1678,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802552151}
-  m_LocalRotation: {x: 0.005520259, y: 0.23334065, z: -0.0014008504, w: 0.97237843}
-  m_LocalPosition: {x: 387.6015, y: -162.817, z: 176.17694}
+  m_LocalRotation: {x: 0.10950446, y: -0.03874814, z: -0.0041966983, w: -0.99322194}
+  m_LocalPosition: {x: 413.47876, y: -155.32701, z: 181.1473}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1743276375}
@@ -2632,7 +2632,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3156,6 +3156,7 @@ MonoBehaviour:
   SuccessIcon: {fileID: 8097364409698408123, guid: 3eca3797be5ed0840a1d26cd914af658, type: 3}
   FailedIcon: {fileID: 4034310886262095160, guid: 2afdfeff78fa81249b18ca4075648daf, type: 3}
   IconPanel: {fileID: 1515327543}
+  countText: {fileID: 0}
 --- !u!1001 &2125820517
 PrefabInstance:
   m_ObjectHideFlags: 0

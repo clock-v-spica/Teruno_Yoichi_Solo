@@ -13,6 +13,9 @@ public class ScoreUIView : MonoBehaviour
     [SerializeField]
     GameObject IconPanel;
 
+    [SerializeField]
+    Text countText;
+
     public void AddSuccessIcon()
     {
         Instantiate(SuccessIcon, IconPanel.transform);
@@ -22,6 +25,35 @@ public class ScoreUIView : MonoBehaviour
     {
         Instantiate(FailedIcon, IconPanel.transform);
     }
+
+    public void SetCountText(int count)
+    {
+        string text = "";
+        switch (count)
+        {
+            default:
+                text = "ˆê";
+                break;
+            case 1:
+                text = "ˆê";
+                break;
+            case 2:
+                text = "“ñ";
+                break;
+            case 3:
+                text = "ŽO";
+                break;
+            case 4:
+                text = "Žl";
+                break;
+            case 5:
+                text = "ŒÜ";
+                break;
+        }
+
+        countText.text = text;
+    }
+
     public void FadeIn()
     {
         StartCoroutine(FadeInCoroutine(GetComponentsInChildren<Graphic>()));

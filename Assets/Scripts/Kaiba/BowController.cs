@@ -34,7 +34,23 @@ namespace Kaiba.Teruno_System
         {
             _localstartPos = stringBone.localPosition;
 
-            StartCoroutine(CountUICoroutine(true));
+            StartCoroutine(StartUICoroutine());
+        }
+
+
+        IEnumerator StartUICoroutine()
+        {
+                sfxPlayer.PlayJoyChorus();
+            yield return new WaitForSeconds(2f);
+            uIView.FadeIn();
+            yield return new WaitForSeconds(5f);
+
+
+            uIView.FadeOut();
+
+            yield return new WaitForSeconds(3f);
+
+            ShooterManager.Shottable = true;
         }
 
         // Update is called once per frame
@@ -96,6 +112,8 @@ namespace Kaiba.Teruno_System
         }
         IEnumerator CountUICoroutine(bool success)
         {
+            uIView.SetCountText(arrow_num);
+
             if (!success)
                 sfxPlayer.PlaySadChorus();
 
@@ -109,24 +127,24 @@ namespace Kaiba.Teruno_System
             }
             yield return new WaitForSeconds(2f);
             uIView.FadeIn();
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(3f);
 
 
             if (success)
                 uIView.AddSuccessIcon();
             else
                 uIView.AddFailedIcon();
-            
+
+            yield return new WaitForSeconds(2f);
             uIView.FadeOut();
 
-            yield return new WaitForSeconds(2.5f);
 
             ShooterManager.Shottable = true;
         }
 
         IEnumerator FadeCoroutine()
         {
-            yield return new WaitForSecondsRealtime(5f);
+            yield return new WaitForSecondsRealtime(12f);
 
             yield return _CenterEyeAnchor.FadeOut();
             yield return new WaitForSeconds(2.0f);
