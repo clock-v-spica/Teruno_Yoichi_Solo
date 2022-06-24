@@ -22,6 +22,7 @@ namespace Kaiba.Teruno_System
 
         Vector3 initPos;
 
+        bool willBeDestroy;
 
         // Start is called before the first frame update
         void Start()
@@ -55,7 +56,8 @@ namespace Kaiba.Teruno_System
 
             if (Vector3.Distance(initPos, transform.position) > 100)
             {
-                ArrowOut();
+                if (!willBeDestroy)
+                    ArrowOut();
             }
         }
 
@@ -118,6 +120,7 @@ namespace Kaiba.Teruno_System
         public void ArrowOut()
         {
             view.RPC("ArrowOutRPC", RpcTarget.All, new object[] { });
+            willBeDestroy = true;
         }
 
         [PunRPC]
