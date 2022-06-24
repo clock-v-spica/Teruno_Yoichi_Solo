@@ -173,7 +173,7 @@ MonoBehaviour:
   isLanched: 0
   isSet: 0
   _bowManager: {fileID: 0}
-  ForceCoefficient: 50
+  ForceCoefficient: 75
   hitEffectPrefab: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
   view: {fileID: 5714612141803740499}
 --- !u!1 &6045410562774565599
