@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using OVR;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Kaiba.Teruno_System
 {
@@ -14,8 +16,12 @@ namespace Kaiba.Teruno_System
         [SerializeField] public GameObject _RightHand;
         [SerializeField] Transform stringBone; // 弓のRig
 
+        [SerializeField] public OVRScreenFade _CenterEyeAnchor;
+        
         Vector3 _localstartPos;
         private GameObject arrow;
+        [SerializeField] public int arrow_max = 5;
+        [SerializeField] public int arrow_num = 0;
 
         // Start is called before the first frame update
         void Start()
@@ -26,6 +32,7 @@ namespace Kaiba.Teruno_System
         // Update is called once per frame
         void Update()
         {
+            /*
             if (!TerunoManager.IsHost)
                 return;
 
@@ -34,7 +41,20 @@ namespace Kaiba.Teruno_System
                 arrow = Network.NetworkUtility.Instantiate("Prefabs/Arrow_Bow", _RightHand.transform.position, _RightHand.transform.rotation * Quaternion.Euler(0f, 0.0f, 0f));
                 arrow.transform.parent = _RightHand.transform;
             }
+            */
 
+            if (arrow_num == arrow_max)
+            {
+                StartCoroutine(FadeCoroutine());
+            }
+
+        }
+
+        IEnumerator FadeCoroutine()
+        {
+            yield return _CenterEyeAnchor.FadeOut();
+            yield return new WaitForSeconds(2.0f);
+            MainSceneFinish();
         }
 
         /// <summary>
@@ -45,8 +65,9 @@ namespace Kaiba.Teruno_System
         {
             stringBone.localPosition =
                 new Vector3(
-                   stringBone.localPosition.x,
-                   -(_localstartPos.y + worldDistance * 10f * (1f / stringBone.lossyScale.y)),
+                    (_localstartPos.x + worldDistance * 0.8f * (1f / stringBone.lossyScale.x)),
+                   stringBone.localPosition.y,
+                   
                      stringBone.localPosition.z
                 );
         }
@@ -58,6 +79,11 @@ namespace Kaiba.Teruno_System
         {
             stringBone.transform.localPosition = _localstartPos;
         }
+        
+        public void MainSceneFinish(){
+            SceneManager.LoadScene("PhotonSample");
+        }
+
     }
 
 }

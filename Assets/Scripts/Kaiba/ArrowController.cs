@@ -19,6 +19,7 @@ namespace Kaiba.Teruno_System
 
         [SerializeField]
         PhotonView view;
+        
 
         // Start is called before the first frame update
         void Start()
@@ -66,6 +67,8 @@ namespace Kaiba.Teruno_System
             rb.useGravity = true;
             rb.constraints = RigidbodyConstraints.None;
             rb.AddForce(this.transform.forward * ForceCoefficient * distance, ForceMode.Impulse);
+            _bowManager.arrow_num++;
+            _bowManager.Reset();
         }
 
 

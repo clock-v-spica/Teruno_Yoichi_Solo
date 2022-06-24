@@ -7,6 +7,7 @@ TagManager:
   - Targets
   - Arrows
   - Bow
+  - ArrowBox
   layers:
   - Default
   - TransparentFX
