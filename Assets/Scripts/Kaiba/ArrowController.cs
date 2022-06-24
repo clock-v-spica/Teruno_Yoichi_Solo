@@ -21,7 +21,7 @@ namespace Kaiba.Teruno_System
         PhotonView view;
 
         Vector3 initPos;
-        
+
 
         // Start is called before the first frame update
         void Start()
@@ -53,9 +53,8 @@ namespace Kaiba.Teruno_System
                 Shot(dis);
             }
 
-            if (Vector3.Distance(initPos,transform.position) > 100)
+            if (Vector3.Distance(initPos, transform.position) > 100)
             {
-                Network.NetworkUtility.DestroyNetworkObject(gameObject);
                 ArrowOut();
             }
         }
@@ -125,6 +124,8 @@ namespace Kaiba.Teruno_System
         public void ArrowOutRPC()
         {
             _bowManager.CountArrow(false);
+            if (TerunoManager.IsHost)
+                Network.NetworkUtility.DestroyNetworkObject(gameObject);
         }
 
         public void OnPhotonInstantiate(PhotonMessageInfo info)
