@@ -7,7 +7,7 @@ using UnityEngine;
 public class NetworkConnector : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject canvas;
-
+    [SerializeField] public OVRScreenFade _CenterEyeAnchor;
 
     [SerializeField]
     string mainSceneName;
@@ -91,6 +91,7 @@ public class NetworkConnector : MonoBehaviourPunCallbacks
 
         if (IsHost)
         {
+            StartCoroutine(FadeCoroutine());
             PhotonNetwork.LoadLevel(mainSceneName);
 
         }
@@ -106,5 +107,11 @@ public class NetworkConnector : MonoBehaviourPunCallbacks
     {
         base.OnJoinRoomFailed(returnCode, message);
         Debug.Log("Join Room Failed! Error : " + message);
+    }
+    
+    IEnumerator FadeCoroutine()
+    {
+        yield return _CenterEyeAnchor.FadeOut();
+        yield return new WaitForSeconds(2.0f);
     }
 }
