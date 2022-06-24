@@ -19,6 +19,8 @@ namespace Kaiba.Teruno_System
 
         [SerializeField]
         PhotonView view;
+
+        Vector3 initPos;
         
 
         // Start is called before the first frame update
@@ -28,6 +30,7 @@ namespace Kaiba.Teruno_System
             rb = this.GetComponent<Rigidbody>();
             rb.useGravity = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            initPos = transform.position;
         }
 
         // Update is called once per frame
@@ -50,10 +53,10 @@ namespace Kaiba.Teruno_System
                 Shot(dis);
             }
 
-            if (transform.position.magnitude > 100)
+            if (Vector3.Distance(initPos,transform.position) > 100)
             {
                 Network.NetworkUtility.DestroyNetworkObject(gameObject);
-                _bowManager.arrow_num++;
+                ArrowOut();
             }
         }
 
@@ -97,7 +100,6 @@ namespace Kaiba.Teruno_System
                 rb.velocity = Vector3.zero;
                 rb.useGravity = false;
                 this.gameObject.transform.parent = other.gameObject.transform;
-                _bowManager.arrow_num++;
                 OnHit();
             }
         }
@@ -111,6 +113,18 @@ namespace Kaiba.Teruno_System
         public void HitRPC()
         {
             Instantiate(hitEffectPrefab, transform.position + transform.forward * 0.05f, transform.rotation);
+            _bowManager.CountArrow(true);
+        }
+
+        public void ArrowOut()
+        {
+            view.RPC("ArrowOutRPC", RpcTarget.All, new object[] { });
+        }
+
+        [PunRPC]
+        public void ArrowOutRPC()
+        {
+            _bowManager.CountArrow(false);
         }
 
         public void OnPhotonInstantiate(PhotonMessageInfo info)

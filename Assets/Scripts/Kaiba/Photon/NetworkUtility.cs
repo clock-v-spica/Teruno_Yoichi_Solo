@@ -44,6 +44,12 @@ namespace Kaiba.Network
             PhotonNetwork.Destroy(obj);
         }
 
+
+        public static void ExitRoom()
+        {
+            PhotonNetwork.LeaveRoom();
+        }
+
     }
 
 }

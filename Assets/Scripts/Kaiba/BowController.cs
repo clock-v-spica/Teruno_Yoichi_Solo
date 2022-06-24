@@ -17,16 +17,24 @@ namespace Kaiba.Teruno_System
         [SerializeField] Transform stringBone; // 弓のRig
 
         [SerializeField] public OVRScreenFade _CenterEyeAnchor;
-        
+
         Vector3 _localstartPos;
         private GameObject arrow;
         [SerializeField] public int arrow_max = 5;
         [SerializeField] public int arrow_num = 0;
 
+        [SerializeField]
+        SoundPlayer sfxPlayer;
+
+        [SerializeField]
+        ScoreUIView uIView;
+
         // Start is called before the first frame update
         void Start()
         {
             _localstartPos = stringBone.localPosition;
+
+            StartCoroutine(CountUICoroutine(true));
         }
 
         // Update is called once per frame
@@ -43,18 +51,7 @@ namespace Kaiba.Teruno_System
             }
             */
 
-            if (arrow_num == arrow_max)
-            {
-                StartCoroutine(FadeCoroutine());
-            }
 
-        }
-
-        IEnumerator FadeCoroutine()
-        {
-            yield return _CenterEyeAnchor.FadeOut();
-            yield return new WaitForSeconds(2.0f);
-            MainSceneFinish();
         }
 
         /// <summary>
@@ -67,7 +64,7 @@ namespace Kaiba.Teruno_System
                 new Vector3(
                     (_localstartPos.x + worldDistance * 0.8f * (1f / stringBone.lossyScale.x)),
                    stringBone.localPosition.y,
-                   
+
                      stringBone.localPosition.z
                 );
         }
@@ -79,9 +76,61 @@ namespace Kaiba.Teruno_System
         {
             stringBone.transform.localPosition = _localstartPos;
         }
-        
-        public void MainSceneFinish(){
+
+        public void MainSceneFinish()
+        {
+            Network.NetworkUtility.ExitRoom();
             SceneManager.LoadScene("PhotonSample");
+        }
+
+        public void CountArrow(bool wasSuccess)
+        {
+            arrow_num++;
+
+            StartCoroutine(CountUICoroutine(wasSuccess));
+
+            if (arrow_num == arrow_max)
+            {
+                StartCoroutine(FadeCoroutine());
+            }
+        }
+        IEnumerator CountUICoroutine(bool success)
+        {
+            if (!success)
+                sfxPlayer.PlaySadChorus();
+
+            if (success)
+            {
+                Time.timeScale = 0.2f;
+                yield return new WaitForSecondsRealtime(1.0f);
+                Time.timeScale = 1f;
+
+                sfxPlayer.PlayJoyChorus();
+            }
+            yield return new WaitForSeconds(2f);
+            uIView.FadeIn();
+            yield return new WaitForSeconds(1.5f);
+
+
+            if (success)
+                uIView.AddSuccessIcon();
+            else
+                uIView.AddFailedIcon();
+            
+            uIView.FadeOut();
+
+            yield return new WaitForSeconds(2.5f);
+
+            ShooterManager.Shottable = true;
+        }
+
+        IEnumerator FadeCoroutine()
+        {
+            yield return new WaitForSecondsRealtime(5f);
+
+            yield return _CenterEyeAnchor.FadeOut();
+            yield return new WaitForSeconds(2.0f);
+            MainSceneFinish();
         }
 
     }
