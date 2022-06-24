@@ -1,4 +1,4 @@
-using Network.Kaiba;
+using Kaiba.Network;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +19,8 @@ public class TerunoManager
 
     public static TerunoManager m_Instance;
 
+    public static Transform shooterAnchor;
+    public static Transform catcherAnchor;
 
     public static bool IsNetworkHost = false;
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Network.Kaiba;
+using Kaiba.Network;
 
 public class PlayerBody_NetSync : MonoBehaviour
 {
