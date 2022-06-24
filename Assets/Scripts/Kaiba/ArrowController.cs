@@ -50,7 +50,11 @@ namespace Kaiba.Teruno_System
                 Shot(dis);
             }
 
-            if (transform.position.magnitude > 200) Network.NetworkUtility.DestroyNetworkObject(gameObject);
+            if (transform.position.magnitude > 100)
+            {
+                Network.NetworkUtility.DestroyNetworkObject(gameObject);
+                _bowManager.arrow_num++;
+            }
         }
 
         void ShotRPC(float distance)
@@ -67,7 +71,6 @@ namespace Kaiba.Teruno_System
             rb.useGravity = true;
             rb.constraints = RigidbodyConstraints.None;
             rb.AddForce(this.transform.forward * ForceCoefficient * distance, ForceMode.Impulse);
-            _bowManager.arrow_num++;
             _bowManager.Reset();
         }
 
@@ -91,7 +94,10 @@ namespace Kaiba.Teruno_System
 
             if (other.gameObject.tag == "Targets")
             {
-                rb.constraints = RigidbodyConstraints.FreezeAll;
+                rb.velocity = Vector3.zero;
+                rb.useGravity = false;
+                this.gameObject.transform.parent = other.gameObject.transform;
+                _bowManager.arrow_num++;
                 OnHit();
             }
         }
