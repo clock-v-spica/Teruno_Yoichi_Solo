@@ -26,6 +26,7 @@ namespace Kaiba.Teruno_System
         // Update is called once per frame
         void Update()
         {
+            /*
             if (!TerunoManager.IsHost)
                 return;
 
@@ -34,6 +35,7 @@ namespace Kaiba.Teruno_System
                 arrow = Network.NetworkUtility.Instantiate("Prefabs/Arrow_Bow", _RightHand.transform.position, _RightHand.transform.rotation * Quaternion.Euler(0f, 0.0f, 0f));
                 arrow.transform.parent = _RightHand.transform;
             }
+            */
 
         }
 
@@ -45,8 +47,9 @@ namespace Kaiba.Teruno_System
         {
             stringBone.localPosition =
                 new Vector3(
-                   stringBone.localPosition.x,
-                   -(_localstartPos.y + worldDistance * 10f * (1f / stringBone.lossyScale.y)),
+                    (_localstartPos.x + worldDistance * 0.8f * (1f / stringBone.lossyScale.x)),
+                   stringBone.localPosition.y,
+                   
                      stringBone.localPosition.z
                 );
         }

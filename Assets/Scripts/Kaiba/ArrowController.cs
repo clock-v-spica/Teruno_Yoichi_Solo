@@ -66,6 +66,7 @@ namespace Kaiba.Teruno_System
             rb.useGravity = true;
             rb.constraints = RigidbodyConstraints.None;
             rb.AddForce(this.transform.forward * ForceCoefficient * distance, ForceMode.Impulse);
+            _bowManager.Reset();
         }
 
 
