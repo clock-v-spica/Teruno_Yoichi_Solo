@@ -16,14 +16,26 @@ public class ScoreUIView : MonoBehaviour
     [SerializeField]
     Text countText;
 
+    [SerializeField] public AudioSource Audio;
+    
     public void AddSuccessIcon()
     {
         Instantiate(SuccessIcon, IconPanel.transform);
+        StartCoroutine(PlaySound());
+
     }
 
     public void AddFailedIcon()
     {
         Instantiate(FailedIcon, IconPanel.transform);
+        StartCoroutine(PlaySound());
+    }
+
+    IEnumerator PlaySound()
+    {
+        yield return new WaitForSeconds(0.22f);
+        Audio.Play();
+        yield return null;
     }
 
     public void SetCountText(int count)
@@ -32,22 +44,22 @@ public class ScoreUIView : MonoBehaviour
         switch (count)
         {
             default:
-                text = "ˆê";
+                text = "ä¸€";
                 break;
             case 1:
-                text = "ˆê";
+                text = "ä¸€";
                 break;
             case 2:
-                text = "“ñ";
+                text = "äºŒ";
                 break;
             case 3:
-                text = "ŽO";
+                text = "ä¸‰";
                 break;
             case 4:
-                text = "Žl";
+                text = "å››";
                 break;
             case 5:
-                text = "ŒÜ";
+                text = "äº”";
                 break;
         }
 
