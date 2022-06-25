@@ -26,6 +26,9 @@ namespace Kaiba.Network
         [SerializeField]
         GameObject remotePlayer;
 
+        [SerializeField]
+        GameObject uiCanvas;
+
 
         [SerializeField]
         bool isOffline;
@@ -91,6 +94,8 @@ namespace Kaiba.Network
 
         void AssignToTabletPlayer()
         {
+            uiCanvas.transform.rotation = Quaternion.Inverse(uiCanvas.transform.rotation);
+
             VRCameraRig.GetComponent<PlayerSetup>().Init(false);
             VRCameraRig.transform.SetParent(catcherAnchor.parent);
             VRCameraRig.transform.position = catcherAnchor.position;
