@@ -20,6 +20,12 @@ namespace Kaiba.Teruno_System
         [SerializeField]
         PhotonView view;
 
+        [SerializeField] 
+        private AudioSource source;
+
+        [SerializeField] 
+        private AudioClip shotClip;
+
         Vector3 initPos;
 
         bool willBeDestroy;
@@ -60,13 +66,13 @@ namespace Kaiba.Teruno_System
                     ArrowOut();
             }
         }
-
+        
+        [PunRPC]
         void ShotRPC(float distance)
         {
-            view.RPC("Shot", RpcTarget.All, new object[] { distance });
+            source.PlayOneShot(shotClip);
         }
 
-        [PunRPC]
         public void Shot(float distance)
         {
             isSet = false;
@@ -76,6 +82,7 @@ namespace Kaiba.Teruno_System
             rb.constraints = RigidbodyConstraints.None;
             rb.AddForce(this.transform.forward * ForceCoefficient * distance, ForceMode.Impulse);
             _bowManager.Reset();
+            view.RPC("ShotRPC", RpcTarget.All, new object[] { distance });
         }
 
 
