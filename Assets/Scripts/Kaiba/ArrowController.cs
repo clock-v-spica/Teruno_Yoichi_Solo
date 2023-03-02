@@ -1,14 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using Kaiba;
+using Photon.Pun;
 using UnityEngine;
 
 namespace Kaiba.Teruno_System
 {
-    using Photon.Pun;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
 
     public class ArrowController : MonoBehaviour, IPunInstantiateMagicCallback
     {
@@ -20,7 +15,20 @@ namespace Kaiba.Teruno_System
         private float dis = 0;
 
         [SerializeField]
+        GameObject hitEffectPrefab;
+
+        [SerializeField]
         PhotonView view;
+
+        [SerializeField] 
+        private AudioSource source;
+
+        [SerializeField] 
+        private AudioClip shotClip;
+
+        Vector3 initPos;
+
+        bool willBeDestroy;
 
         // Start is called before the first frame update
         void Start()
@@ -29,6 +37,7 @@ namespace Kaiba.Teruno_System
             rb = this.GetComponent<Rigidbody>();
             rb.useGravity = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            initPos = transform.position;
         }
 
         // Update is called once per frame
@@ -42,7 +51,7 @@ namespace Kaiba.Teruno_System
                 dis = (_bowManager._LeftHand.transform.position - _bowManager._RightHand.transform.position).magnitude;
                 _bowManager.BowDrawing(dis);
                 Vector3 localPos = this.transform.localPosition;
-                localPos.x = -dis;
+                localPos.z = -dis;
                 this.transform.localPosition = localPos;
             }
 
@@ -51,15 +60,19 @@ namespace Kaiba.Teruno_System
                 Shot(dis);
             }
 
-            if (this.transform.position.magnitude > 200) Destroy(this);
+            if (Vector3.Distance(initPos, transform.position) > 100)
+            {
+                if (!willBeDestroy)
+                    ArrowOut();
+            }
         }
-
+        
+        [PunRPC]
         void ShotRPC(float distance)
         {
-            view.RPC("Shot", RpcTarget.All, new object[] { distance });
+            source.PlayOneShot(shotClip);
         }
 
-        [PunRPC]
         public void Shot(float distance)
         {
             isSet = false;
@@ -67,7 +80,9 @@ namespace Kaiba.Teruno_System
             this.transform.parent = null;
             rb.useGravity = true;
             rb.constraints = RigidbodyConstraints.None;
-            rb.AddForce(this.transform.right * ForceCoefficient * distance, ForceMode.Impulse);
+            rb.AddForce(this.transform.forward * ForceCoefficient * distance, ForceMode.Impulse);
+            _bowManager.Reset();
+            view.RPC("ShotRPC", RpcTarget.All, new object[] { distance });
         }
 
 
@@ -90,7 +105,9 @@ namespace Kaiba.Teruno_System
 
             if (other.gameObject.tag == "Targets")
             {
-                rb.constraints = RigidbodyConstraints.FreezeAll;
+                rb.velocity = Vector3.zero;
+                rb.useGravity = false;
+                this.gameObject.transform.parent = other.gameObject.transform;
                 OnHit();
             }
         }
@@ -103,7 +120,22 @@ namespace Kaiba.Teruno_System
         [PunRPC]
         public void HitRPC()
         {
+            Instantiate(hitEffectPrefab, transform.position + transform.forward * 0.05f, transform.rotation);
+            _bowManager.CountArrow(true);
+        }
 
+        public void ArrowOut()
+        {
+            view.RPC("ArrowOutRPC", RpcTarget.All, new object[] { });
+            willBeDestroy = true;
+        }
+
+        [PunRPC]
+        public void ArrowOutRPC()
+        {
+            _bowManager.CountArrow(false);
+            if (TerunoManager.IsHost)
+                Network.NetworkUtility.DestroyNetworkObject(gameObject);
         }
 
         public void OnPhotonInstantiate(PhotonMessageInfo info)
