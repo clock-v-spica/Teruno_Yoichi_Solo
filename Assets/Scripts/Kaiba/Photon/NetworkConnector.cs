@@ -7,7 +7,7 @@ using UnityEngine;
 public class NetworkConnector : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject canvas;
-    [SerializeField] public OVRScreenFade _CenterEyeAnchor;
+    [SerializeField] public ScreenFader _CenterEyeAnchor;
 
     [SerializeField]
     string mainSceneName;

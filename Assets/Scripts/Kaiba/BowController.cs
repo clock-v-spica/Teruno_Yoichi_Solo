@@ -16,7 +16,7 @@ namespace Kaiba.Teruno_System
         [SerializeField] public GameObject _RightHand;
         [SerializeField] Transform stringBone; // 弓のRig
 
-        [SerializeField] public OVRScreenFade _CenterEyeAnchor;
+        [SerializeField] public ScreenFader _CenterEyeAnchor;
 
         Vector3 _localstartPos;
         private GameObject arrow;
