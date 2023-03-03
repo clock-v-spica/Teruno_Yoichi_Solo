@@ -5,12 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kaiba/PhotonSample.unity
     guid: 859b2829da20b0b439723a239fec2bcf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kaiba/PhotonMain.unity
     guid: f142e9c8a0431d04fb1bb8fcf3ea6bdd
+  - enabled: 1
+    path: Assets/Scenes/kura/Kawasaki_Title.unity
+    guid: f6ae4f9a6e35c7047937d9bb85451bb3
+  - enabled: 1
+    path: Assets/Scenes/kura/Kawasaki_Main.unity
+    guid: ca2d8300be4f1434a94849c0342f4de9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8cf4fb9b39432514f8dc7e99f8b8d32f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: eeb0e61a82ef57c4fb9c68e3cb8664a0, type: 2}
