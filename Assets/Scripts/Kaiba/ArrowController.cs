@@ -60,7 +60,7 @@ namespace Kaiba.Teruno_System
                 Shot(dis);
             }
 
-            if (Vector3.Distance(initPos, transform.position) > 100)
+            if (Vector3.Distance(initPos, transform.position) > 50)
             {
                 if (!willBeDestroy)
                     ArrowOut();

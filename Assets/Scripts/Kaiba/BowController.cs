@@ -95,7 +95,7 @@ namespace Kaiba.Teruno_System
 
         public void MainSceneFinish()
         {
-            Network.NetworkUtility.ExitRoom();
+            // Network.NetworkUtility.ExitRoom();
             SceneManager.LoadScene("Kawasaki_Title");
         }
 

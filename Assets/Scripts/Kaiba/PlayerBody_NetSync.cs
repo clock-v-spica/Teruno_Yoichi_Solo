@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class PlayerBody_NetSync : MonoBehaviour
     int partIndex;
 
     public static Dictionary<TrackedBodyPart, GameObject> HandDict = new Dictionary<TrackedBodyPart, GameObject>();
+
+    private void Awake()
+    {
+        HandDict.Clear();
+    }
 
     public void Init(int PlayerIndex)
     {
